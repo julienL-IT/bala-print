@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bala Print</title>
+<meta name="description" content="Support et politique de confidentialité de l'app Bala Print - Bambuddy.">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}*{box-sizing:border-box}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+  /* Layout: one readable column, a header with the app mark, then Support and Privacy as two sections; French first, English after. */
+  :root {
+    --bg: #EEF4F2;
+    --surface: #FFFFFF;
+    --fg: #14211D;
+    --muted: #55645F;
+    --accent: #0F8A6B;
+    --accent-soft: #D8F3EA;
+    --line: #DCE6E2;
+    --font-display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+    --font-body: "Atkinson Hyperlegible", -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1210; --surface: #16201D; --fg: #E6EFEC; --muted: #A3B1AC;
+      --accent: #2DD4A7; --accent-soft: #0F3B31; --line: #2A3833; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1210; --surface: #16201D; --fg: #E6EFEC; --muted: #A3B1AC;
+    --accent: #2DD4A7; --accent-soft: #0F3B31; --line: #2A3833; color-scheme: dark;
+  }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 56px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+  header { display: flex; align-items: center; gap: 16px; }
+  .mark {
+    width: 64px; height: 64px; border-radius: 18px; flex: none;
+    background: var(--accent); display: grid; place-items: center;
+  }
+  .mark svg { width: 38px; height: 38px; }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+  h1 { font-size: 2rem; }
+  .tagline { color: var(--muted); margin: 4px 0 0; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a {
+    text-decoration: none; color: var(--accent); background: var(--accent-soft);
+    padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+  }
+  nav a:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  section {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+    padding: 24px; display: grid; gap: 14px;
+  }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.1rem; margin-top: 8px; }
+  p, ul { margin: 0; }
+  ul { padding-left: 1.2em; display: grid; gap: 6px; }
+  a { color: var(--accent); }
+  .lang {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .note { color: var(--muted); font-size: 0.95rem; }
+  .contact {
+    border-left: 3px solid var(--accent); padding: 8px 0 8px 14px;
+    display: grid; gap: 4px;
+  }
+  .contact strong { font-family: var(--font-display); }
+  code { font-size: 0.9em; overflow-wrap: anywhere; }
+  footer { color: var(--muted); font-size: 0.9rem; text-align: center; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4">
+        <ellipse cx="32" cy="14" rx="24" ry="7" />
+        <ellipse cx="32" cy="14" rx="9" ry="3" />
+        <path d="M11 22c5 3 37 3 42 0M11 30c5 3 37 3 42 0M11 38c5 3 37 3 42 0M11 46c5 3 37 3 42 0" stroke-linecap="round" />
+        <ellipse cx="32" cy="52" rx="24" ry="7" />
+      </svg>
+    </div>
+    <div>
+      <h1>Bala Print</h1>
+      <p class="tagline">Compagnon iPhone et iPad de Bambuddy · iPhone &amp; iPad companion for Bambuddy</p>
+    </div>
+  </header>
+
+  <nav aria-label="Sections">
+    <a href="#support">Support</a>
+    <a href="#confidentialite">Confidentialité</a>
+    <a href="#privacy">Privacy (EN)</a>
+  </nav>
+
+  <section id="support" aria-labelledby="support-title">
+    <span class="lang">Français</span>
+    <h2 id="support-title">Support</h2>
+    <p>Bala Print se connecte à votre propre serveur <a href="https://github.com/maziggy/bambuddy">Bambuddy</a> (logiciel libre, auto-hébergé) pour suivre et piloter vos imprimantes 3D Bambu Lab.</p>
+
+    <div class="contact" id="contact">
+      <strong>Contacter le développeur</strong>
+      <span>Depuis l'App Store : page de l'app › « Assistance de l'app ».</span>
+    </div>
+
+    <h3>Connexion au serveur</h3>
+    <ul>
+      <li>Saisissez l'adresse complète avec le port, par exemple <code>http://192.168.1.10:8000</code>.</li>
+      <li>Si l'authentification est activée sur Bambuddy, utilisez une clé API (Bambuddy › Réglages › Clés API) ou vos identifiants. La double authentification n'est pas prise en charge : utilisez une clé API.</li>
+      <li>Pour un serveur en HTTPS avec un certificat auto-signé, activez « Accepter un certificat non vérifié » dans la fiche du serveur.</li>
+      <li>Un serveur exposé uniquement via l'interface intégrée de Home Assistant (Ingress) n'est pas joignable : exposez le port de Bambuddy.</li>
+    </ul>
+
+    <h3>Sans serveur</h3>
+    <p>Touchez « Essayer la démo » au premier lancement pour découvrir toutes les fonctions avec des imprimantes fictives.</p>
+
+    <p class="note">Bala Print est une application indépendante, non affiliée à Bambu Lab ni au projet Bambuddy.</p>
+  </section>
+
+  <section id="confidentialite" aria-labelledby="privacy-fr-title">
+    <span class="lang">Français</span>
+    <h2 id="privacy-fr-title">Politique de confidentialité</h2>
+    <p>Dernière mise à jour : 28 octobre 2026. Éditeur : Julien Lamadon.</p>
+
+    <h3>Données collectées</h3>
+    <p>Bala Print ne collecte aucune donnée personnelle. L'app ne contient ni compte utilisateur, ni publicité, ni outil de mesure d'audience, ni service tiers de suivi.</p>
+
+    <h3>Données stockées sur votre appareil</h3>
+    <ul>
+      <li>Les serveurs que vous ajoutez : nom, adresse, et selon votre choix une clé API ou un jeton de session. Votre mot de passe n'est jamais conservé.</li>
+      <li>Vos préférences d'affichage et un résumé de l'état des imprimantes, partagés avec les widgets et l'Activité en direct de l'app.</li>
+    </ul>
+    <p>Ces données restent sur votre appareil et sont supprimées avec l'app.</p>
+
+    <h3>Communications réseau</h3>
+    <p>L'app communique uniquement avec les serveurs Bambuddy que vous avez configurés. Aucune donnée n'est envoyée au développeur.</p>
+
+    <h3>Analyses intelligentes</h3>
+    <p>Les analyses des statistiques sont calculées sur l'appareil, avec Apple Intelligence lorsqu'il est disponible. Rien n'est envoyé sur Internet pour ces analyses.</p>
+
+    <h3>Enfants</h3>
+    <p>L'app ne collecte aucune donnée, y compris auprès des enfants.</p>
+
+    <h3>Contact</h3>
+    <p>Pour toute question : page de l'app sur l'App Store › « Assistance de l'app ».</p>
+  </section>
+
+  <section id="privacy" aria-labelledby="privacy-en-title">
+    <span class="lang">English</span>
+    <h2 id="privacy-en-title">Privacy Policy</h2>
+    <p>Last updated: October 28, 2026. Publisher: Julien Lamadon.</p>
+    <p><strong>No data collected.</strong> Bala Print collects no personal data. There are no user accounts, ads, analytics or third-party tracking.</p>
+    <p><strong>Stored on your device.</strong> The servers you add (name, address, and either an API key or a session token; your password is never stored), your display preferences, and a summary of printer status shared with the app's widgets and Live Activity. This data stays on your device and is deleted with the app.</p>
+    <p><strong>Network.</strong> The app only talks to the Bambuddy servers you configure. Nothing is sent to the developer.</p>
+    <p><strong>Insights.</strong> Statistics insights are computed on device, using Apple Intelligence when available.</p>
+    <p><strong>Support.</strong> Bala Print connects to your self-hosted Bambuddy server. Enter the full address with its port (for example <code>http://192.168.1.10:8000</code>), use an API key when authentication is enabled, or try the built-in demo without a server. Contact the developer from the app's App Store page › "App Support".</p>
+  </section>
+
+  <footer>© 2026 Julien Lamadon · Bala Print</footer>
+</div>
+
+</body>
+</html>
