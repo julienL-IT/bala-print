@@ -6,56 +6,66 @@
 <title>Bala Print</title>
 <meta name="description" content="Support et politique de confidentialité de l'app Bala Print - Bambuddy.">
 <style>html{color-scheme:light}body{margin:0}img{max-width:100%}*{box-sizing:border-box}</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
-  /* Layout: one readable column, a header with the app mark, then Support and Privacy as two sections; French first, English after. */
+  /* Matches the app's blue theme: night-workshop banner, white cards, blue accent; French first, English after. */
   :root {
-    --bg: #EEF4F2;
+    --bg: #EEF2F8;
     --surface: #FFFFFF;
-    --fg: #14211D;
-    --muted: #55645F;
-    --accent: #0F8A6B;
-    --accent-soft: #D8F3EA;
-    --line: #DCE6E2;
-    --font-display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
-    --font-body: "Atkinson Hyperlegible", -apple-system, "Segoe UI", system-ui, sans-serif;
+    --fg: #111827;
+    --muted: #5B6475;
+    --accent: #2563EB;
+    --accent-soft: #DCE8FD;
+    --line: #E1E7F0;
+    --font-display: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+    --font-body: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0B1210; --surface: #16201D; --fg: #E6EFEC; --muted: #A3B1AC;
-      --accent: #2DD4A7; --accent-soft: #0F3B31; --line: #2A3833; color-scheme: dark;
+      --bg: #0B0F17; --surface: #161B24; --fg: #E8ECF3; --muted: #A1AABB;
+      --accent: #60A5FA; --accent-soft: #142847; --line: #2A3242; color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0B1210; --surface: #16201D; --fg: #E6EFEC; --muted: #A3B1AC;
-    --accent: #2DD4A7; --accent-soft: #0F3B31; --line: #2A3833; color-scheme: dark;
+    --bg: #0B0F17; --surface: #161B24; --fg: #E8ECF3; --muted: #A1AABB;
+    --accent: #60A5FA; --accent-soft: #142847; --line: #2A3242; color-scheme: dark;
   }
   body {
     background: var(--bg); color: var(--fg);
     font-family: var(--font-body); font-size: 17px; line-height: 1.6;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-block: 32px 56px;
+    padding-bottom: 56px;
   }
-  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
-  header { display: flex; align-items: center; gap: 16px; }
-  .mark {
-    width: 64px; height: 64px; border-radius: 18px; flex: none;
-    background: var(--accent); display: grid; place-items: center;
+  .hero {
+    position: relative; min-height: clamp(420px, 62vw, 560px); display: flex; align-items: flex-end;
+    background: #0B0F17 url("hero.jpg") center 30% / cover no-repeat;
+    padding: 32px max(16px, env(safe-area-inset-left, 0px)) 40px;
   }
-  .mark svg { width: 38px; height: 38px; }
+  /* Keeps the title readable over the illustration and fades into the page. */
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 82%, var(--bg) 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1; max-width: 680px; width: 100%; margin: 0 auto;
+    display: flex; align-items: center; gap: 16px; color: #fff;
+  }
+  .hero-inner img { width: 72px; height: 72px; border-radius: 18px; flex: none; box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+  .wrap {
+    max-width: 680px; margin: 0 auto; display: grid; gap: 20px;
+    padding: 8px max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  }
   h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
-  h1 { font-size: 2rem; }
-  .tagline { color: var(--muted); margin: 4px 0 0; }
+  h1 { font-size: 2.2rem; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.45); }
+  .tagline { margin: 4px 0 0; color: rgba(255,255,255,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
   nav { display: flex; flex-wrap: wrap; gap: 8px; }
   nav a {
     text-decoration: none; color: var(--accent); background: var(--accent-soft);
-    padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+    padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
   }
   nav a:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   section {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 24px;
     padding: 24px; display: grid; gap: 14px;
+    box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
   }
   h2 { font-size: 1.5rem; }
   h3 { font-size: 1.1rem; margin-top: 8px; }
@@ -63,37 +73,31 @@
   ul { padding-left: 1.2em; display: grid; gap: 6px; }
   a { color: var(--accent); }
   .lang {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted);
+    justify-self: start; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: 999px;
   }
   .note { color: var(--muted); font-size: 0.95rem; }
   .contact {
-    border-left: 3px solid var(--accent); padding: 8px 0 8px 14px;
+    background: var(--accent-soft); border-radius: 16px; padding: 12px 16px;
     display: grid; gap: 4px;
   }
-  .contact strong { font-family: var(--font-display); }
+  .contact strong { font-family: var(--font-display); color: var(--accent); }
   code { font-size: 0.9em; overflow-wrap: anywhere; }
   footer { color: var(--muted); font-size: 0.9rem; text-align: center; }
 </style>
 
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="mark" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4">
-        <ellipse cx="32" cy="14" rx="24" ry="7" />
-        <ellipse cx="32" cy="14" rx="9" ry="3" />
-        <path d="M11 22c5 3 37 3 42 0M11 30c5 3 37 3 42 0M11 38c5 3 37 3 42 0M11 46c5 3 37 3 42 0" stroke-linecap="round" />
-        <ellipse cx="32" cy="52" rx="24" ry="7" />
-      </svg>
-    </div>
+<header class="hero">
+  <div class="hero-inner">
+    <img src="icon.png" alt="" width="72" height="72">
     <div>
       <h1>Bala Print</h1>
       <p class="tagline">Compagnon iPhone et iPad de Bambuddy · iPhone &amp; iPad companion for Bambuddy</p>
     </div>
-  </header>
-
+  </div>
+</header>
+<div class="wrap">
   <nav aria-label="Sections">
     <a href="#support">Support</a>
     <a href="#confidentialite">Confidentialité</a>
@@ -142,9 +146,6 @@
     <h3>Communications réseau</h3>
     <p>L'app communique uniquement avec les serveurs Bambuddy que vous avez configurés. Aucune donnée n'est envoyée au développeur.</p>
 
-    <h3>Analyses intelligentes</h3>
-    <p>Les analyses des statistiques sont calculées sur l'appareil, avec Apple Intelligence lorsqu'il est disponible. Rien n'est envoyé sur Internet pour ces analyses.</p>
-
     <h3>Enfants</h3>
     <p>L'app ne collecte aucune donnée, y compris auprès des enfants.</p>
 
@@ -159,7 +160,6 @@
     <p><strong>No data collected.</strong> Bala Print collects no personal data. There are no user accounts, ads, analytics or third-party tracking.</p>
     <p><strong>Stored on your device.</strong> The servers you add (name, address, and either an API key or a session token; your password is never stored), your display preferences, and a summary of printer status shared with the app's widgets and Live Activity. This data stays on your device and is deleted with the app.</p>
     <p><strong>Network.</strong> The app only talks to the Bambuddy servers you configure. Nothing is sent to the developer.</p>
-    <p><strong>Insights.</strong> Statistics insights are computed on device, using Apple Intelligence when available.</p>
     <p><strong>Support.</strong> Bala Print connects to your self-hosted Bambuddy server. Enter the full address with its port (for example <code>http://192.168.1.10:8000</code>), use an API key when authentication is enabled, or try the built-in demo without a server. Contact the developer from the app's App Store page › "App Support".</p>
   </section>
 
